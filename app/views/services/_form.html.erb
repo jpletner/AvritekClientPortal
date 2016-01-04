@@ -1,0 +1,85 @@
+<%= form_for(@service) do |f| %>
+  <% if @service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+      <% @service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :service_type %><br>
+    <%= f.text_field :service_type %>
+  </div>
+  <div class="field">
+    <%= f.label :onsite_contact_name %><br>
+    <%= f.text_field :onsite_contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :onsite_contact_phone %><br>
+    <%= f.text_field :onsite_contact_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode %><br>
+    <%= f.number_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :equipment_description %><br>
+    <%= f.text_area :equipment_description %>
+  </div>
+  <div class="field">
+    <%= f.label :floor %><br>
+    <%= f.text_field :floor %>
+  </div>
+  <div class="field">
+    <%= f.label :room %><br>
+    <%= f.text_field :room %>
+  </div>
+  <div class="field">
+    <%= f.label :parking_instructions %><br>
+    <%= f.text_area :parking_instructions %>
+  </div>
+  <div class="field">
+    <%= f.label :day_option1 %><br>
+    <%= f.text_field :day_option1 %>
+  </div>
+  <div class="field">
+    <%= f.label :day_option2 %><br>
+    <%= f.text_field :day_option2 %>
+  </div>
+  <div class="field">
+    <%= f.label :time_option1 %><br>
+    <%= f.text_field :time_option1 %>
+  </div>
+  <div class="field">
+    <%= f.label :time_option2 %><br>
+    <%= f.text_field :time_option2 %>
+  </div>
+  <div class="field">
+    <%= f.label : %><br>
+    <%= f.datetime_select : %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
