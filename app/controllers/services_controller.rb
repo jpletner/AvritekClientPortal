@@ -17,11 +17,13 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
+    @user = current_user
     @service = Service.new
   end
 
   # GET /services/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /services

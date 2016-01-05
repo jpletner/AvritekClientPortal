@@ -17,31 +17,31 @@
   </div>
   <div class="field">
     <%= f.label :onsite_contact_name %><br>
-    <%= f.text_field :onsite_contact_name %>
+    <%= f.text_field :onsite_contact_name, :value => @user.onsite_contact_name %>
   </div>
   <div class="field">
     <%= f.label :onsite_contact_phone %><br>
-    <%= f.text_field :onsite_contact_phone %>
+    <%= f.text_field :onsite_contact_phone, :value => @user.onsite_contact_phone %>
   </div>
   <div class="field">
     <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
+    <%= f.text_field :company_name, :value => @user.company_name %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, :value => @user.company_address %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, :value => @user.company_city %>
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= f.text_field :state, :value => @user.company_state %>
   </div>
   <div class="field">
     <%= f.label :zipcode %><br>
-    <%= f.number_field :zipcode %>
+    <%= f.number_field :zipcode, :value => @user.company_zip %>
   </div>
   <div class="field">
     <%= f.label :equipment_description %><br>
@@ -57,15 +57,15 @@
   </div>
   <div class="field">
     <%= f.label :parking_instructions %><br>
-    <%= f.text_area :parking_instructions %>
+    <%= f.text_area :parking_instructions, :value => @user.parking_instructions %>
   </div>
   <div class="field">
     <%= f.label :day_option1 %><br>
-    <%= f.text_field :day_option1 %>
+    <%= f.date_field :day_option1 %>
   </div>
   <div class="field">
     <%= f.label :day_option2 %><br>
-    <%= f.text_field :day_option2 %>
+    <%= f.date_field :day_option2 %>
   </div>
   <div class="field">
     <%= f.label :time_option1 %><br>
