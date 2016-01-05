@@ -5,12 +5,14 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
+    @user = current_user
     @services = Service.all
   end
 
   # GET /services/1
   # GET /services/1.json
   def show
+    @user = current_user
   end
 
   # GET /services/new
@@ -25,12 +27,14 @@ class ServicesController < ApplicationController
   # POST /services
   # POST /services.json
   def create
-    @service = Service.new(service_params)
-
+    @user = current_user
+    newService = Service.new(service_params)
     respond_to do |format|
-      if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
-        format.json { render :show, status: :created, location: @service }
+    @user.services << newService
+    @user.save
+      if @user.save
+        format.html { render :index, notice: 'Service was successfully created.' }
+        format.json { render :index, status: :created, location: @service }
       else
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }

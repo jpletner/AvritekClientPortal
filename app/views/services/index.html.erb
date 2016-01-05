@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>User Id</th>
       <th>Service type</th>
       <th>Onsite contact name</th>
       <th>Onsite contact phone</th>
@@ -27,32 +28,37 @@
   </thead>
 
   <tbody>
-    <% @services.each do |service| %>
-      <tr>
-        <td><%= service.service_type %></td>
-        <td><%= service.onsite_contact_name %></td>
-        <td><%= service.onsite_contact_phone %></td>
-        <td><%= service.company_name %></td>
-        <td><%= service.address %></td>
-        <td><%= service.city %></td>
-        <td><%= service.state %></td>
-        <td><%= service.zipcode %></td>
-        <td><%= service.equipment_description %></td>
-        <td><%= service.floor %></td>
-        <td><%= service.room %></td>
-        <td><%= service.parking_instructions %></td>
-        <td><%= service.day_option1 %></td>
-        <td><%= service.day_option2 %></td>
-        <td><%= service.time_option1 %></td>
-        <td><%= service.time_option2 %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if @user.services.any? %>
+      <% @user.services.each do |service| %>
+        <tr>
+          <td><%= service.user_id %></td>
+          <td><%= service.service_type %></td>
+          <td><%= service.onsite_contact_name %></td>
+          <td><%= service.onsite_contact_phone %></td>
+          <td><%= service.company_name %></td>
+          <td><%= service.address %></td>
+          <td><%= service.city %></td>
+          <td><%= service.state %></td>
+          <td><%= service.zipcode %></td>
+          <td><%= service.equipment_description %></td>
+          <td><%= service.floor %></td>
+          <td><%= service.room %></td>
+          <td><%= service.parking_instructions %></td>
+          <td><%= service.day_option1 %></td>
+          <td><%= service.day_option2 %></td>
+          <td><%= service.time_option1 %></td>
+          <td><%= service.time_option2 %></td>
+          <% if @user == current_user %>
+            <td><%= link_to 'Show', service %></td>
+            <td><%= link_to 'Edit', edit_service_path(service) %></td>
+            <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Service', new_service_path %>
+<%= link_to 'Create a New Service Request', new_service_path %>
