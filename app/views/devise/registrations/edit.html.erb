@@ -4,8 +4,68 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.telephone_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_address %><br />
+    <%= f.text_field :company_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_city %><br />
+    <%= f.text_field :company_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_state %><br />
+    <%= f.text_field :company_state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_zip %><br />
+    <%= f.number_field :company_zip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_phone %><br />
+    <%= f.telephone_field :company_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :onsite_contact_name %><br />
+    <%= f.text_field :onsite_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :onsite_contact_phone %><br />
+    <%= f.text_field :onsite_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parking_instructions %><br />
+    <%= f.text_area :parking_instructions %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
