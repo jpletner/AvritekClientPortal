@@ -87,6 +87,13 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+<% if current_user.admin? %>
+  <div class="field">
+    <%= f.label :admin %> <br />
+    <%= f.check_box :admin %>
+  </div>
+<% end %>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
