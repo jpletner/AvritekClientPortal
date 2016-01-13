@@ -41,6 +41,7 @@ class ServicesController < ApplicationController
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
+    @services = Service.all
     end
   end
 

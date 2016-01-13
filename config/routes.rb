@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     get "users/show" => "registrations#show"
   end
   root 'services#index'
-  match('/services/search', {:via => :get, :to => 'services#search'})
   resources :services
+  match('/services/search', {:via => :get, :to => 'services#search'})
+
 
 
   # Example of regular route:

@@ -19,7 +19,7 @@
         <div class="col-lg-8 col-lg-offset-2">
             <div class="field form-group">
               <%= f.label :service_type, class: "control-label" %>
-              <%= f.text_field :service_type, class: "form-control" %>
+              <%= f.select :service_type, [['Equipment Removal','Equipment Removal'],['Consignment sales','Consignment sales'],['Data Destruction & Sanitization','Data Destruction & Sanitization'],['Direct purchase','Direct purchase'],['Equipment & Product Destruction','Equipment & Product Destruction'],['Electronic Storage Media Shredding','Electronic Storage Media Shredding'],['Value Assessment','Value Assessment']], class: "form-control" %>
             </div>
             <div class="field form-group">
               <%= f.label :onsite_contact_name, class: "control-label" %>
