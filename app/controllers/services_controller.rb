@@ -70,8 +70,8 @@ class ServicesController < ApplicationController
 
   def search
     if !params[:company_search].nil?
-      company_search = params[:company_search].strip.downcase
-      @company_services = Service.where("company_name LIKE (?)", "%#{company_search}%")
+      company_search = params[:company_search].strip
+      @company_services = Service.where("lower(company_name) LIKE (?)", "%#{company_search.downcase}%")
     end
   end
 
