@@ -1,0 +1,18 @@
+<h2>Search Services</h2>
+  <form action ="/services/search" method="get">
+    <label for="word_search_input">Search by company</label>
+    <input id="word_search_input" type="text" name="company_search" />
+    <input type="submit" value="Search" />
+  </form>
+
+
+  <% if !@company_services.nil? %>
+    <% if !@company_services.empty? %>
+          <h3>Services Found:</h3>
+          <% @company_services.each do |service| %>
+              <%= link_to service.company_name, service %><br/>
+          <% end %>
+    <% else %>
+      <h4 class="text-center">No Services Found</h4>
+    <% end %>
+  <% end %>

@@ -68,6 +68,13 @@ class ServicesController < ApplicationController
     end
   end
 
+  def search
+    if !params[:company_search].nil?
+      company_search = params[:company_search].strip.downcase
+      @company_services = Service.where("company_name LIKE (?)", "%#{company_search}%")
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
