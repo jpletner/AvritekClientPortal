@@ -14,3 +14,43 @@
  *= require_tree .
  *= require_self
  */
+
+th, td {
+  padding: 0 15px;
+  border: 1px dotted lightgrey;
+}
+
+td {
+  border: 1px dotted lightgrey;
+}
+
+th a {
+  color: #f05f40;
+  background-color: transparent;
+  border: none;
+}
+th a:hover {
+  color: darkgrey;
+  background-color: transparent;
+  border: none;
+}
+
+th .current {
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+th .asc {
+  background-image: url(up_arrow.png);
+  background-size: 15px 10px;
+  background-color: transparent;
+  border: none;
+}
+
+th .desc {
+  background-image: url(down_arrow.png);
+  background-size: 15px 10px;
+  background-color: transparent;
+  border: none;
+}

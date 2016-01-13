@@ -5,24 +5,23 @@
 <table>
   <thead>
     <tr>
-      <th>Creator</th>
-      <th>Service type</th>
-      <th>Onsite contact name</th>
-      <th>Onsite contact phone</th>
-      <th>Company name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
-      <th>Equipment description</th>
-      <th>Floor</th>
-      <th>Room</th>
-      <th>Parking instructions</th>
-      <th>Day option1</th>
-      <th>Day option2</th>
-      <th>Time option1</th>
-      <th>Time option2</th>
-      <th></th>
+      <th><%= sortable "first_name", "Creator" %></th>
+      <th><%= sortable "service_type", "Service Type" %></th>
+      <th><%= sortable "onsite_contact_name", "Onsite Contact Name" %></th>
+      <th><%= sortable "onsite_contact_phone", "Onsite Contact Phone" %></th>
+      <th><%= sortable "company_name", "Company Name" %></th>
+      <th><%= sortable "address", "Address" %></th>
+      <th><%= sortable "city", "City" %></th>
+      <th><%= sortable "state", "State" %></th>
+      <th><%= sortable "zipcode", "Zip" %></th>
+      <th><%= sortable "equipment_description", "Equipment Description" %></th>
+      <th><%= sortable "floor", "Floor" %></th>
+      <th><%= sortable "room", "Room" %></th>
+      <th><%= sortable "parking_instructions", "Parking Instructions" %></th>
+      <th><%= sortable "day_option1", "Requested Day #1" %></th>
+      <th><%= sortable "day_option2", "Requested Day #2" %></th>
+      <th><%= sortable "time_option1", "Requested Time #1" %></th>
+      <th><%= sortable "time_option2", "Requested Time  #2" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -81,6 +80,8 @@
     <% end %>
   </tbody>
 </table>
+
+
 
 <br>
 

@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "users/show" => "registrations#show"
   end
+  match('/services/search', {:via => :get, :to => 'services#search'})
   root 'services#index'
   resources :services
-  match('/services/search', {:via => :get, :to => 'services#search'})
+
 
 
 

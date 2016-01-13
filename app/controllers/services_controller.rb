@@ -1,12 +1,13 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  helper_method :sort_column, :sort_direction
 
   # GET /services
   # GET /services.json
   def index
     @user = current_user
-    @services = Service.all
+    @services = Service.order(sort_column + " " + sort_direction)
   end
 
   # GET /services/1
@@ -89,6 +90,15 @@ class ServicesController < ApplicationController
   end
 
   private
+    # Setting defaults for sorting
+    def sort_column
+      Service.column_names.include?(params[:sort]) ? params[:sort] : "company_name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
