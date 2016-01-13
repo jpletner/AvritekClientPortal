@@ -11,17 +11,17 @@
       <th>Onsite contact phone</th>
       <th>Company name</th>
       <th>Address</th>
-      <th>City</th>
-      <th>State</th>
+      <!-- <th>City</th>
+      <th>State</th> -->
       <th>Zipcode</th>
       <th>Equipment description</th>
-      <th>Floor</th>
+      <!-- <th>Floor</th>
       <th>Room</th>
       <th>Parking instructions</th>
       <th>Day option1</th>
       <th>Day option2</th>
       <th>Time option1</th>
-      <th>Time option2</th>
+      <th>Time option2</th> -->
       <th></th>
       <th colspan="3"></th>
     </tr>
@@ -37,17 +37,17 @@
           <td><%= service.onsite_contact_phone %></td>
           <td><%= service.company_name %></td>
           <td><%= service.address %></td>
-          <td><%= service.city %></td>
-          <td><%= service.state %></td>
+          <!-- <td><%= service.city %></td>
+          <td><%= service.state %></td> -->
           <td><%= service.zipcode %></td>
           <td><%= service.equipment_description %></td>
-          <td><%= service.floor %></td>
+          <!-- <td><%= service.floor %></td>
           <td><%= service.room %></td>
           <td><%= service.parking_instructions %></td>
           <td><%= service.day_option1 %></td>
           <td><%= service.day_option2 %></td>
           <td><%= service.time_option1 %></td>
-          <td><%= service.time_option2 %></td>
+          <td><%= service.time_option2 %></td> -->
           <% if @user == current_user %>
             <td><%= link_to 'Show', service %></td>
             <td><%= link_to 'Edit', edit_service_path(service) %></td>
@@ -64,17 +64,17 @@
             <td><%= service.onsite_contact_phone %></td>
             <td><%= service.company_name %></td>
             <td><%= service.address %></td>
-            <td><%= service.city %></td>
-            <td><%= service.state %></td>
+            <!-- <td><%= service.city %></td>
+            <td><%= service.state %></td> -->
             <td><%= service.zipcode %></td>
             <td><%= service.equipment_description %></td>
-            <td><%= service.floor %></td>
+            <!-- <td><%= service.floor %></td>
             <td><%= service.room %></td>
             <td><%= service.parking_instructions %></td>
             <td><%= service.day_option1 %></td>
             <td><%= service.day_option2 %></td>
             <td><%= service.time_option1 %></td>
-            <td><%= service.time_option2 %></td>
+            <td><%= service.time_option2 %></td> -->
             <td><%= link_to 'Show', service %></td>
             <td><%= link_to 'Edit', edit_service_path(service) %></td>
             <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>

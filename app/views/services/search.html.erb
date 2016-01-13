@@ -1,7 +1,22 @@
 <h2>Search Services</h2>
   <form action ="/services/search" method="get">
-    <label for="word_search_input">Search by company</label>
+    <label for="word_search_input">Search by Company</label>
     <input id="word_search_input" type="text" name="company_search" />
+    <input type="submit" value="Search" />
+  </form>
+  <form action ="/services/search" method="get">
+    <label for="word_search_input">Search by Equipment Description</label>
+    <input id="word_search_input" type="text" name="equipment_description_search" />
+    <input type="submit" value="Search" />
+  </form>
+  <form action ="/services/search" method="get">
+    <label for="word_search_input">Search by Service Type</label>
+    <input id="word_search_input" type="text" name="service_type_search" />
+    <input type="submit" value="Search" />
+  </form>
+  <form action ="/services/search" method="get">
+    <label for="date_search_input">Search by Requested Day</label>
+    <input id="date_search_input" type="date" name="day_search" />
     <input type="submit" value="Search" />
   </form>
 
@@ -10,7 +25,40 @@
     <% if !@company_services.empty? %>
           <h3>Services Found:</h3>
           <% @company_services.each do |service| %>
-              <%= link_to service.company_name, service %><br/>
+              <%= link_to service.created_at, service %> <%= link_to service.company_name, service %> <%= link_to service.service_type, service %> <%= link_to service.equipment_description, service %><br>
+          <% end %>
+    <% else %>
+      <h4 class="text-center">No Services Found</h4>
+    <% end %>
+  <% end %>
+
+  <% if !@equipment_description.nil? %>
+    <% if !@equipment_description.empty? %>
+          <h3>Services Found:</h3>
+          <% @equipment_description.each do |service| %>
+              <%= link_to service.created_at, service %> <%= link_to service.company_name, service %> <%= link_to service.service_type, service %> <%= link_to service.equipment_description, service %><br>
+          <% end %>
+    <% else %>
+      <h4 class="text-center">No Services Found</h4>
+    <% end %>
+  <% end %>
+
+  <% if !@service_type.nil? %>
+    <% if !@service_type.empty? %>
+          <h3>Services Found:</h3>
+          <% @service_type.each do |service| %>
+              <%= link_to service.created_at, service %> <%= link_to service.company_name, service %> <%= link_to service.service_type, service %> <%= link_to service.equipment_description, service %><br>
+          <% end %>
+    <% else %>
+      <h4 class="text-center">No Services Found</h4>
+    <% end %>
+  <% end %>
+
+  <% if !@day.nil? %>
+    <% if !@day.empty? %>
+          <h3>Services Found:</h3>
+          <% @day.each do |service| %>
+              <%= link_to service.created_at, service %> <%= link_to service.company_name, service %> <%= link_to service.service_type, service %> <%= link_to service.day_option1, service %> <%= link_to service.day_option2, service %><br>
           <% end %>
     <% else %>
       <h4 class="text-center">No Services Found</h4>

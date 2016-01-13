@@ -73,6 +73,18 @@ class ServicesController < ApplicationController
       company_search = params[:company_search].strip
       @company_services = Service.where("lower(company_name) LIKE (?)", "%#{company_search.downcase}%")
     end
+    if !params[:equipment_description_search].nil?
+      equipment_description_search = params[:equipment_description_search].strip
+      @equipment_description = Service.where("lower(equipment_description) LIKE (?)", "%#{equipment_description_search.downcase}%")
+    end
+    if !params[:service_type_search].nil?
+      service_type_search = params[:service_type_search].strip
+      @service_type = Service.where("lower(service_type) LIKE (?)", "%#{service_type_search.downcase}%")
+    end
+    if !params[:day_search].nil?
+      day_search = params[:day_search].strip
+      @day = Service.where("lower(day_option1) LIKE (?) OR lower(day_option2) LIKE (?)", "%#{day_search.downcase}%", "%#{day_search.downcase}%")
+    end
   end
 
   private
