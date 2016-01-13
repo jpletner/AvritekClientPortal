@@ -1,81 +1,92 @@
-<%= form_for(@service) do |f| %>
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<div class="container">
+    <%= form_for @service, :html => {:class => "form-horizontal"} do |f| %>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <% if @service.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
-      <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :service_type %><br>
-    <%= f.text_field :service_type %>
-  </div>
-  <div class="field">
-    <%= f.label :onsite_contact_name %><br>
-    <%= f.text_field :onsite_contact_name, :value => @user.onsite_contact_name %>
-  </div>
-  <div class="field">
-    <%= f.label :onsite_contact_phone %><br>
-    <%= f.text_field :onsite_contact_phone, :value => @user.onsite_contact_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name, :value => @user.company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address, :value => @user.company_address %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city, :value => @user.company_city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state, :value => @user.company_state %>
-  </div>
-  <div class="field">
-    <%= f.label :zipcode %><br>
-    <%= f.number_field :zipcode, :value => @user.company_zip %>
-  </div>
-  <div class="field">
-    <%= f.label :equipment_description %><br>
-    <%= f.text_area :equipment_description %>
-  </div>
-  <div class="field">
-    <%= f.label :floor %><br>
-    <%= f.text_field :floor %>
-  </div>
-  <div class="field">
-    <%= f.label :room %><br>
-    <%= f.text_field :room %>
-  </div>
-  <div class="field">
-    <%= f.label :parking_instructions %><br>
-    <%= f.text_area :parking_instructions, :value => @user.parking_instructions %>
-  </div>
-  <div class="field">
-    <%= f.label :day_option1 %><br>
-    <%= f.date_field :day_option1 %>
-  </div>
-  <div class="field">
-    <%= f.label :day_option2 %><br>
-    <%= f.date_field :day_option2 %>
-  </div>
-  <div class="field">
-    <%= f.label :time_option1 %><br>
-    <%= f.text_field :time_option1 %>
-  </div>
-  <div class="field">
-    <%= f.label :time_option2 %><br>
-    <%= f.text_field :time_option2 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+              <ul>
+              <% @service.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="field form-group">
+              <%= f.label :service_type, class: "control-label" %>
+              <%= f.text_field :service_type, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :onsite_contact_name, class: "control-label" %>
+              <%= f.text_field :onsite_contact_name, :value => @user.onsite_contact_name, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :onsite_contact_phone, class: "control-label" %>
+              <%= f.text_field :onsite_contact_phone, :value => @user.onsite_contact_phone, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :company_name, class: "control-label" %>
+              <%= f.text_field :company_name, :value => @user.company_name, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :address, class: "control-label" %>
+              <%= f.text_field :address, :value => @user.company_address, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :city, class: "control-label" %>
+              <%= f.text_field :city, :value => @user.company_city, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :state, class: "control-label" %>
+              <%= f.text_field :state, :value => @user.company_state, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :zipcode, class: "control-label" %>
+              <%= f.number_field :zipcode, :value => @user.company_zip, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :equipment_description, class: "control-label" %>
+              <%= f.text_area :equipment_description, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :floor, class: "control-label" %>
+              <%= f.text_field :floor, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :room, class: "control-label" %>
+              <%= f.text_field :room, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :parking_instructions, class: "control-label" %>
+              <%= f.text_area :parking_instructions, :value => @user.parking_instructions, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :day_option1, class: "control-label" %>
+              <%= f.date_field :day_option1, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :day_option2, class: "control-label" %>
+              <%= f.date_field :day_option2, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :time_option1, class: "control-label" %>
+              <%= f.text_field :time_option1, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :time_option2, class: "control-label" %>
+              <%= f.text_field :time_option2, class: "form-control" %>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-lg-offset-4 actions btn btn-primary text-center">
+                  <%= f.submit %>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+</div>
