@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @user = current_user
-    @services = Service.order(sort_column + " " + sort_direction)
+    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
   end
 
   # GET /services/1
@@ -42,7 +42,7 @@ class ServicesController < ApplicationController
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
-    @services = Service.all
+    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
     end
   end
 
@@ -106,6 +106,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2)
+      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2, :pallets)
     end
 end

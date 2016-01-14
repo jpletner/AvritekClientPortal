@@ -10,4 +10,12 @@ class Service < ActiveRecord::Base
   validates :state, :presence => true
   validates :zipcode, :presence => true
 
+  # def self.search(search)
+  #   if search
+  #     where("lower(name) LIKE (?) OR lower(first_name) LIKE (?) OR lower(day_option2) LIKE (?)", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%" )
+  #   else
+  #     where(nil)
+  #   end
+  # end
+
 end

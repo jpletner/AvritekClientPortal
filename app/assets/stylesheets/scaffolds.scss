@@ -19,16 +19,12 @@ pre {
 }
 
 a {
-  padding: 8px;
+  padding: 5px;
   border-radius: 5px;
-  color: white;
-  background-color: #f05f40;
+  color: #f05f40;
 
   &:hover {
-    color: #f05f40;
-    border: 1px solid #f05f40;
-    background-color: white;
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 

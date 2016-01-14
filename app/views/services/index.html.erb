@@ -2,6 +2,15 @@
 
 <h1>Listing Services</h1>
 
+<!-- <%= form_tag services_path, :method => "get" do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag 'Search', params[:search] %>
+    <%= submit_tag 'Search', :name => nil  %>
+  </p>
+<% end %> -->
+
 <table>
   <thead>
     <tr>
@@ -15,6 +24,7 @@
       <th><%= sortable "state", "State" %></th>
       <th><%= sortable "zipcode", "Zip" %></th>
       <th><%= sortable "equipment_description", "Equipment Description" %></th>
+      <th><%= sortable "pallets", "Num. of Pallets" %></th>
       <th><%= sortable "floor", "Floor" %></th>
       <th><%= sortable "room", "Room" %></th>
       <th><%= sortable "parking_instructions", "Parking Instructions" %></th>
@@ -40,6 +50,7 @@
           <td><%= service.state %></td>
           <td><%= service.zipcode %></td>
           <td><%= service.equipment_description %></td>
+          <td><%= service.pallets %></td>
           <td><%= service.floor %></td>
           <td><%= service.room %></td>
           <td><%= service.parking_instructions %></td>
@@ -65,6 +76,7 @@
             <td><%= service.state %></td>
             <td><%= service.zipcode %></td>
             <td><%= service.equipment_description %></td>
+            <td><%= service.pallets %></td>
             <td><%= service.floor %></td>
             <td><%= service.room %></td>
             <td><%= service.parking_instructions %></td>
@@ -81,6 +93,9 @@
   </tbody>
 </table>
 
+<% unless @services.empty? %>
+  <%= will_paginate @services %>
+<% end %>
 
 
 <br>
