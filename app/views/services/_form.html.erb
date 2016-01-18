@@ -60,22 +60,27 @@
             <div class="field form-group">
               <%= f.label :image, "Upload Main Equipment Photo", class: "control-label" %><br>
               <%= f.file_field :image %><br>
-              <%= image_tag(@service.image.url(:large)) %><br>
-
+              <% if !@service.image.blank? %>
+                <%= image_tag(@service.image.url(:large)) %><br>
+              <% end %>
               <%= f.label :photos, "Upload Additional Equipment Photos", class: "control-label" %><br>
               <%= file_field_tag "photos[]", type: :file, multiple: true, class:"main-font" %><br>
-              <% @service.pictures.each do |picture| %>
-                <div class="inline-div">
-                    <%= image_tag(picture.photo.url(:med), :class => "edit_pic martop") %>
-                    <div class="block-div"><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %>
-                    </div>
-                </div>
+              <% if !@service.pictures.empty? %>
+                <% @service.pictures.each do |picture| %>
+                  <div class="inline-div">
+                      <%= image_tag(picture.photo.url(:med), :class => "edit_pic martop") %>
+                      <div class="block-div"><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %>
+                      </div>
+                  </div>
+                <% end %>
               <% end %>
             </div>
             <div class="field form-group">
               <%= f.label :inventory, "Upload Equipment List", class: "control-label" %>
               <%= f.file_field :inventory %><br>
-              <i>Select to Download:</i><%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
+              <% if !@service.inventory.blank? %>
+                <i>Select to Download:</i><%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
+              <% end %>
             </div>
             <div class="field form-group">
               <%= f.label :floor, class: "control-label" %>

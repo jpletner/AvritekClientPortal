@@ -36,7 +36,7 @@ class ServicesController < ApplicationController
     @user.services << newService
     @user.save
       if @user.save
-        @service = multiple_photos(@service)
+        @service = multiple_photos(newService)
         format.html { render :index, notice: 'Service was successfully created.' }
         format.json { render :index, status: :created, location: @service }
       else
@@ -108,13 +108,13 @@ class ServicesController < ApplicationController
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
-    def multiple_photos(service)
+    def multiple_photos(newService)
       if params[:photos]
         params[:photos].each do |image|
-          service.pictures.create(photo: image)
+          newService.pictures.create(photo: image)
         end
       end
-        return service
+        return newService
     end
 
     # Use callbacks to share common setup or constraints between actions.

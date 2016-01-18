@@ -1,0 +1,14 @@
+<% provide(:title, 'All Users') %>
+
+<h1 class="text-center martop">All Companies/Users</h1>
+<div class="container">
+  <div class="row">
+    <% @users.each do |f| %>
+      <div class="col-md-1 col-md-offset-5 text-center">
+        <a href="/users/<%= f.id %>"><h4><%= f.company_name %></a></h4>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container text-right"><h4><%= will_paginate @users %></h4></div>

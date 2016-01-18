@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "users/show" => "registrations#show"
   end
-  match('/services/search', {:via => :get, :to => 'services#search'})
-  # get '/services/equipment_list/:id', to: 'services#display_equipment_list', :as => 'display_equipment_list'
+
   root 'services#index'
+  match('/services/search', {:via => :get, :to => 'services#search'})
+  match('users/all', {:via => :get, :to => 'users#index'})
+  match('/users/search_users' , {:via => :get, :to => 'users#search_users'})
+  match('users/:id' , {:via => :get, :to => 'users#view_profile'})
+  get '/users/edit/:id' , to: 'users#update_user_profile', as: 'update_user_profile'
   resources :services
   resources :pictures
 

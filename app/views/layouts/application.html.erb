@@ -17,10 +17,15 @@
          <%= link_to 'Services Search', services_search_path %>
          <%= link_to 'View Service Requests', root_path %>
          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-       <% else %>
+       <% else %>
          <%= link_to "Sign Up", new_user_registration_path %> |
          <%= link_to "Login", new_user_session_path %>
        <% end %>
+
+      <% if user_signed_in? & @user.admin? %>
+         <%= link_to 'View All Users', users_all_path %>
+         <%= link_to 'Search Users', users_search_users_path %>
+      <% end %>
    </div>
 
 <%= yield %>

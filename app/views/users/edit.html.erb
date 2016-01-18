@@ -1,0 +1,106 @@
+<h2>Edit <%= @user.to_s.humanize %></h2>
+
+<%= form_for(@user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.telephone_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_address %><br />
+    <%= f.text_field :company_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_city %><br />
+    <%= f.text_field :company_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_state %><br />
+    <%= f.text_field :company_state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_zip %><br />
+    <%= f.number_field :company_zip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_phone %><br />
+    <%= f.telephone_field :company_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :onsite_contact_name %><br />
+    <%= f.text_field :onsite_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :onsite_contact_phone %><br />
+    <%= f.text_field :onsite_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parking_instructions %><br />
+    <%= f.text_area :parking_instructions %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+<% if current_user.admin? %>
+  <div class="field">
+    <%= f.label :admin %> <br />
+    <%= f.check_box :admin %>
+  </div>
+<% end %>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel this account</h3>
+
+<p><%= button_to "Cancel this account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
