@@ -58,12 +58,24 @@
               <%= f.text_field :pallets, class: "form-control" %>
             </div>
             <div class="field form-group">
-              <%= f.label :image, "Upload Equipment Photo", class: "control-label" %>
-              <%= f.file_field :image %>
+              <%= f.label :image, "Upload Main Equipment Photo", class: "control-label" %><br>
+              <%= f.file_field :image %><br>
+              <%= image_tag(@service.image.url(:large)) %><br>
+
+              <%= f.label :photos, "Upload Additional Equipment Photos", class: "control-label" %><br>
+              <%= file_field_tag "photos[]", type: :file, multiple: true, class:"main-font" %><br>
+              <% @service.pictures.each do |picture| %>
+                <div class="inline-div">
+                    <%= image_tag(picture.photo.url(:med), :class => "edit_pic martop") %>
+                    <div class="block-div"><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %>
+                    </div>
+                </div>
+              <% end %>
             </div>
             <div class="field form-group">
-              <%= f.label :inventory, "Upload Inventory List", class: "control-label" %>
-              <%= f.file_field :inventory %>
+              <%= f.label :inventory, "Upload Equipment List", class: "control-label" %>
+              <%= f.file_field :inventory %><br>
+              <i>Select to Download:</i><%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
             </div>
             <div class="field form-group">
               <%= f.label :floor, class: "control-label" %>

@@ -36,6 +36,7 @@ class ServicesController < ApplicationController
     @user.services << newService
     @user.save
       if @user.save
+        @service = multiple_photos(@service)
         format.html { render :index, notice: 'Service was successfully created.' }
         format.json { render :index, status: :created, location: @service }
       else
@@ -52,6 +53,7 @@ class ServicesController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @service.update(service_params)
+        @service = multiple_photos(@service)
         format.html { redirect_to @service, notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
@@ -106,6 +108,15 @@ class ServicesController < ApplicationController
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
+    def multiple_photos(service)
+      if params[:photos]
+        params[:photos].each do |image|
+          service.pictures.create(photo: image)
+        end
+      end
+        return service
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
@@ -113,6 +124,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2, :pallets, :image, :inventory, :other_file1)
+      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2, :pallets, :image, :inventory, :other_file1, :photos)
     end
 end

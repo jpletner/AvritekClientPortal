@@ -81,13 +81,32 @@
 </p>
 
 <p>
-  <strong>Equipment Photo:</strong>
+  <strong>Primary Equipment Photo:</strong><br>
   <%= image_tag(@service.image.url(:large)) %>
 </p>
 
 <p>
-  <strong>Equipment List:</strong>
-  <b>Pdf:</b><%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
+  <strong>Additional Equipment Photos:</strong>
+    <% if !@service.pictures.empty? %>
+      <div id="owl-demo">
+        <% @service.pictures.each do |picture| %>
+          <div class="inline-div">
+            <%= image_tag(picture.photo.url(:med), :class => "owl_item") %>
+            <div class="block-div"><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="add_my_photos">
+        <a class="my_add_photos_link" href="/services/<%= @service.id %>/edit">
+          <h3>Add Your Equipment Photos</h3></a>
+    <% end %>
+      </div>
+</p>
+
+<p>
+  <strong>Equipment List:</strong><br>
+  <i>Select to Download:</i><%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
 </p>
 
 <%= link_to 'Edit', edit_service_path(@service) %> |

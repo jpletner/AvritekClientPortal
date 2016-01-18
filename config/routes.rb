@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get '/services/equipment_list/:id', to: 'services#display_equipment_list', :as => 'display_equipment_list'
   root 'services#index'
   resources :services
+  resources :pictures
 
 
 

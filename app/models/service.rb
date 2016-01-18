@@ -1,5 +1,6 @@
 class Service < ActiveRecord::Base
   belongs_to :user
+  has_many :pictures, :dependent => :destroy
 
   validates :service_type, :presence => true
   validates :onsite_contact_name, :presence => true
@@ -26,6 +27,12 @@ class Service < ActiveRecord::Base
   validates_attachment :other_file1,
     size: { in: 0..10.megabytes },
     :content_type => { :content_type => %w(application/zip application/rtf application/pdf application/msword application/vnd.ms-excel application/doc application/xls application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.openxmlformats-officedocument.spreadsheetml.sheet text/plain) }
+
+  accepts_nested_attributes_for :pictures, :reject_if => lambda { |t| t['picture'].nil? }
+
+  def image_from_url(url)
+      self.image = open(url)
+  end
 
   # def self.search(search)
   #   if search
