@@ -49,6 +49,7 @@ class ServicesController < ApplicationController
   # PATCH/PUT /services/1
   # PATCH/PUT /services/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @service.update(service_params)
         format.html { redirect_to @service, notice: 'Service was successfully updated.' }
@@ -89,6 +90,12 @@ class ServicesController < ApplicationController
     end
   end
 
+  def display_equipment_list
+    service = Service.find(params[:id])
+    send_file service.inventory.path, :type => service.inventory_content_type
+  end
+
+
   private
     # Setting defaults for sorting
     def sort_column
@@ -106,6 +113,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2, :pallets)
+      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2, :pallets, :image, :inventory, :other_file1)
     end
 end

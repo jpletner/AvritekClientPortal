@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114204122) do
+ActiveRecord::Schema.define(version: 20160114205837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,10 +33,22 @@ ActiveRecord::Schema.define(version: 20160114204122) do
     t.string   "day_option2"
     t.string   "time_option1"
     t.string   "time_option2"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.string   "pallets"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "inventory_file_name"
+    t.string   "inventory_content_type"
+    t.integer  "inventory_file_size"
+    t.datetime "inventory_updated_at"
+    t.string   "other_file1_file_name"
+    t.string   "other_file1_content_type"
+    t.integer  "other_file1_file_size"
+    t.datetime "other_file1_updated_at"
   end
 
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree

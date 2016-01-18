@@ -1,5 +1,5 @@
 <div class="container">
-    <%= form_for @service, :html => {:class => "form-horizontal"} do |f| %>
+    <%= form_for @service, :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <% if @service.errors.any? %>
@@ -56,6 +56,14 @@
             <div class="field form-group">
               <%= f.label :pallets, "Number of Pallets (bins or gaylords)", class: "control-label" %>
               <%= f.text_field :pallets, class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :image, "Upload Equipment Photo", class: "control-label" %>
+              <%= f.file_field :image %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :inventory, "Upload Inventory List", class: "control-label" %>
+              <%= f.file_field :inventory %>
             </div>
             <div class="field form-group">
               <%= f.label :floor, class: "control-label" %>

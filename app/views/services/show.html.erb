@@ -80,6 +80,15 @@
   <%= @service.time_option2 %>
 </p>
 
+<p>
+  <strong>Equipment Photo:</strong>
+  <%= image_tag(@service.image.url(:large)) %>
+</p>
+
+<p>
+  <strong>Equipment List:</strong>
+  <b>Pdf:</b><%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
+</p>
 
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>

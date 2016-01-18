@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get "users/show" => "registrations#show"
   end
   match('/services/search', {:via => :get, :to => 'services#search'})
+  # get '/services/equipment_list/:id', to: 'services#display_equipment_list', :as => 'display_equipment_list'
   root 'services#index'
   resources :services
 
