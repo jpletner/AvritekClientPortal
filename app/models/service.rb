@@ -19,13 +19,13 @@ class Service < ActiveRecord::Base
   validates_attachment :inventory,
     :url => "/assets/uploads/:id/:content_type/:basename.:extension",
     :path => ":rails_root/public/assets/uploads/:id/:content_type/:basename.:extension",
-    :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) },
-    size: { in: 0..10.megabytes }
+    size: { in: 0..10.megabytes },
+    :content_type => { :content_type => %w(application/zip application/rtf application/pdf application/msword application/vnd.ms-excel application/doc application/xls application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.openxmlformats-officedocument.spreadsheetml.sheet text/plain) }
 
   has_attached_file :other_file1
   validates_attachment :other_file1,
-    :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) },
-    size: { in: 0..10.megabytes }
+    size: { in: 0..10.megabytes },
+    :content_type => { :content_type => %w(application/zip application/rtf application/pdf application/msword application/vnd.ms-excel application/doc application/xls application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.openxmlformats-officedocument.spreadsheetml.sheet text/plain) }
 
   # def self.search(search)
   #   if search
