@@ -10,6 +10,10 @@ class RegistrationsController < Devise::RegistrationsController
     render 'show.html.erb'
   end
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
 private
 
 

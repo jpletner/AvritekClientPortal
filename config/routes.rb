@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   match('users/all', {:via => :get, :to => 'users#index'})
   match('/users/search_users' , {:via => :get, :to => 'users#search_users'})
   match('users/:id' , {:via => :get, :to => 'users#view_profile'})
-  get '/users/edit/:id' , to: 'users#update_user_profile', as: 'update_user_profile'
   resources :services
   resources :pictures
+  resources :users
 
 
 

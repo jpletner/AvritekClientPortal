@@ -16,14 +16,26 @@ before_action :authenticate_user!
     render 'show.html.erb'
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def view_profile
     @user = User.find(params[:id])
     render 'show.html.erb'
   end
 
-  def update_user_profile
+  def update
     @user = User.find(params[:id])
-    render 'edit.html.erb'
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def search_users
@@ -56,4 +68,7 @@ private
     @user = User.find(params[:id])
   end
 
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :password, :password_confirmation, :current_password, :company_name, :company_address, :company_city, :company_state, :company_zip, :company_phone, :onsite_contact_name, :onsite_contact_phone, :parking_instructions, :admin, :image)
+  end
 end
