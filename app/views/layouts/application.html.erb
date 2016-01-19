@@ -8,31 +8,13 @@
 </head>
 <body>
 
-  <!-- <div id="user_nav">
-       <% if user_signed_in? %>
-         Logged in as <strong><%= current_user.email %></strong>
-         <%= link_to 'View Profile', users_show_path %>
-         <%= link_to 'Edit Profile', edit_user_registration_path %>
-         <%= link_to 'Create New Service', new_service_path %>
-         <%= link_to 'Services Search', services_search_path %>
-         <%= link_to 'View Service Requests', root_path %>
-         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-            <% if current_user.admin? %>
-               <%= link_to 'View All Users', users_all_path %>
-               <%= link_to 'Search Users', users_search_users_path %>
-            <% end %>
-       <% else %>
-         <%= link_to "Sign Up", new_user_registration_path %> |
-         <%= link_to "Login", new_user_session_path %>
-       <% end %>
-
-
-   </div> -->
+<%= render 'header' %>
 
 <%= yield %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+<%= render 'footer' %>
 </body>
 </html>
