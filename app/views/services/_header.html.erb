@@ -1,0 +1,49 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><img src="/assets/Avritek_no_tagline.png"></a>
+            </div>
+
+            <!-- collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <% if user_signed_in? %>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to 'Create New Service', new_service_path %></li>
+                    <li><%= link_to 'View Service Requests', root_path %></li>
+                    <li class="dropdown">
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Search<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-menu-left">
+                              <li><%= link_to 'Search Services', services_search_path %></li>
+                              <% if current_user.admin? %>
+                                <li><%= link_to  'Search Users', users_search_users_path %></li>
+                                <li><%= link_to 'View All Users', users_all_path %></li>
+                              <% end %>
+                      </ul> <!--end ul dropdown #2-->
+                    </li> <!--end li dropdown #2-->
+                    <li><a class="page-scroll primary-font-color" href="http://avritek.com/#contact">Contact Avritek</a></li>
+                    <li class="dropdown">
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle highlight-font-color">Hello <%= current_user.first_name %><b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-menu-left">
+    			                    <li><%= link_to 'View Profile', users_show_path %></li>
+                              <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                      </ul> <!--end ul dropdown #1-->
+                    </li> <!--end li dropdown #1-->
+                  </ul>
+                <% else %>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                      <li><%= link_to "Login", new_user_session_path %></li>
+                      <li><a class="page-scroll highlight-font-color" href="#contact">Contact</a></li>
+                    </ul> <!--end ul -->
+                <% end %>
+            </div> <!-- /.navbar-collapse -->
+        </div> <!-- /.container-fluid -->
+    </nav> <!--end navbar-->
