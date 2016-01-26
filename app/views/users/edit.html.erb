@@ -1,4 +1,4 @@
-<div class="col-md-offset-1 col-md-8 lgmartop">
+
   <h2 class="section-heading">Edit <%= @user.first_name %></h2>
 
   <%= form_for(@user, url: user_path(@user), html: { method: :put }) do |f| %>
@@ -86,4 +86,3 @@
   <p> <%= button_to "Cancel this account", url: user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   <%= link_to "Back", :back %>
-</div>

@@ -10,10 +10,21 @@
 
 <%= render 'header' %>
 
-<%= yield %>
+<div class="container-fluid lgmartop lgmarbot">
+  <div class="row">
+      <div class="col-md-offset-1 col-md-8">
+          <p class="alert highlight-font-color bold"><%= notice %></p>
+          <%= yield %>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-8">
+      <p class="alert highlight-font-color bold"><%= alert %></p>
+    </div>
+  </div>
+<div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
 
 <%= render 'footer' %>
 </body>

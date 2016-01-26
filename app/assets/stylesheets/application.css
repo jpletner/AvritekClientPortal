@@ -15,6 +15,30 @@
  *= require_self
  */
 
+ .bold {
+   font-weight: bold;
+ }
+
+ .lgmartop {
+   margin-top: 60px;
+ }
+
+ .mdmartop {
+   margin-top: 30px;
+ }
+
+ .smmartop {
+   margin-top: 10px;
+ }
+
+ .lgmarbot {
+   margin-bottom: 60px;
+ }
+
+ .mdmarbot {
+   margin-bottom: 30px;
+ }
+
 th, td {
   padding: 0 15px;
   border: 1px dotted lightgrey;

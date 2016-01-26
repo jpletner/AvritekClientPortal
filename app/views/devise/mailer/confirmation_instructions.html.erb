@@ -1,7 +1,6 @@
-<div class="col-md-offset-1 col-md-8 lgmartop">
+
   <p class="section-heading">Welcome <%= @email %>!</p>
 
   <p>You can confirm your account email through the link below:</p>
 
   <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
-</div>

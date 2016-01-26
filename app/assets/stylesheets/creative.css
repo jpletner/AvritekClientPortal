@@ -14,10 +14,6 @@ body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
-.lgmartop {
-  margin-top: 60px;
-}
-
 .grey-divider {
     max-width: 80%;
     position: inherit;
@@ -45,15 +41,27 @@ hr.light {
 }
 
 a {
-    color: #f05f40;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
+  color: #8CC541;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
 }
 
-a:hover,
-a:focus {
-    color: #eb3812;
+a:hover, a:focus {
+    text-decoration: underline;
+    color: #f05f40;
+}
+
+.devise-links {
+  color: #f05f40;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
+}
+
+.devise-links:hover, .devise-links:focus {
+    text-decoration: underline;
+    color: #8CC541;
 }
 
 h1,
@@ -214,10 +222,6 @@ p {
 
 .primary-font-color {
     color: #f05f40!important;
-}
-
-#phone {
-    color: #8CC541;
 }
 
 .well {
@@ -738,6 +742,15 @@ p#modal-text{
   margin: 50px 0 0 0;
   width: 100%;
   position: fixed;
+  left: 0;
+}
+
+.alert {
+    color: highlight-font-color;
+    padding: 30px 0 0 0;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 .pdfbutton {
