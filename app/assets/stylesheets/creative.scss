@@ -592,6 +592,7 @@ fieldset[disabled] .btn-default.active {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    margin: 2% 0;
 }
 
 .btn-primary:hover,
@@ -789,6 +790,11 @@ p.notice.navbar-brand.page-scroll {
     margin: 0 0 0 200px;
     padding: 15px 0 0 0;
     text-transform: uppercase;
+}
+
+.user-profile p {
+    font-size: 14px;
+    line-height: 15px;
 }
 
 /*///////////////////////////////////MEDIA QUERIES/////////////////////////////////////////////////*/

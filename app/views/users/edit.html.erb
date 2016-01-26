@@ -70,10 +70,9 @@
   </div>
 
   <% if current_user.admin? %>
-    <div class="field form-group">
-      <%= f.label :admin, class: "control-label" %> <br />
-      <%= f.check_box :admin, class: "form-control" %>
-    </div>
+  <div class="checkbox-inline field form-group">
+    <%= f.check_box :admin, class: "checkbox-inline" %><%= f.label :admin, class: "bold" %>
+  </div>
   <% end %>
 
     <div class="actions">
@@ -81,8 +80,4 @@
     </div>
   <% end %>
 
-  <h3>Cancel this account</h3>
-
-  <p> <%= button_to "Cancel this account", url: user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
+  <p> <%= button_to "CANCEL MY ACCOUNT", {url: user_path(@user), data: { confirm: "Are you sure?" }, method: :delete}, {class: 'btn btn-info'} %></p>
