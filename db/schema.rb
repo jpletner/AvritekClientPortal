@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118184933) do
+ActiveRecord::Schema.define(version: 20160126201007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160118184933) do
     t.string   "other_file1_content_type"
     t.integer  "other_file1_file_size"
     t.datetime "other_file1_updated_at"
+    t.string   "creator"
   end
 
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree

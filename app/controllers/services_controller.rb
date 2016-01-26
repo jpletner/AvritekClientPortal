@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @user = current_user
-    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
 
   # GET /services/1
@@ -32,6 +32,7 @@ class ServicesController < ApplicationController
   def create
     @user = current_user
     newService = Service.new(service_params)
+    newService.creator = @user.first_name + " " + @user.last_name
     respond_to do |format|
     @user.services << newService
     @user.save
@@ -124,6 +125,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2, :pallets, :image, :inventory, :other_file1, :photos)
+      params.require(:service).permit(:service_type, :onsite_contact_name, :onsite_contact_phone, :company_name, :address, :city, :state, :zipcode, :equipment_description, :floor, :room, :parking_instructions, :day_option1, :day_option2, :time_option1, :time_option2, :pallets, :image, :inventory, :other_file1, :photos, :creator)
     end
 end

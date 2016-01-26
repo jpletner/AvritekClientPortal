@@ -39,8 +39,16 @@
    margin-bottom: 30px;
  }
 
+ .lgpadlft {
+   padding-left: 30px;
+ }
+
+ .lgpadrt {
+   padding-right: 100px;
+ }
+
 th, td {
-  padding: 0 15px;
+  padding: 0 10px;
   border: 1px dotted lightgrey;
 }
 
@@ -54,7 +62,7 @@ th a {
   border: none;
 }
 th a:hover {
-  color: darkgrey;
+  color: #8CC541;
   background-color: transparent;
   border: none;
 }
