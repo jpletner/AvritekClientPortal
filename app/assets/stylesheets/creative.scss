@@ -52,7 +52,7 @@ a:hover, a:focus {
     color: #f05f40;
 }
 
-.devise-links {
+.devise-links, .footer a {
   color: #f05f40;
   -webkit-transition: all .35s;
   -moz-transition: all .35s;
@@ -62,6 +62,10 @@ a:hover, a:focus {
 .devise-links:hover, .devise-links:focus {
     text-decoration: underline;
     color: #8CC541;
+}
+
+.footer a:hover {
+  color: #8CC541;
 }
 
 h1,
