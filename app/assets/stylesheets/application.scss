@@ -88,14 +88,14 @@ th .current {
 }
 
 th .asc {
-  background-image: url(up_arrow.png);
+  background-image: image-url("up_arrow.png");
   background-size: 15px 10px;
   background-color: transparent;
   border: none;
 }
 
 th .desc {
-  background-image: url(down_arrow.png);
+  background-image: image-url("down_arrow.png");
   background-size: 15px 10px;
   background-color: transparent;
   border: none;
