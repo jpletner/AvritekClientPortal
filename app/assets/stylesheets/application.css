@@ -47,6 +47,20 @@
    padding-right: 100px;
  }
 
+ .mdpadrt {
+   padding-right: 60px;
+ }
+
+ .mdpadtop {
+   padding-top: 20px;
+ }
+
+.fix-width {
+  width: 27%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+}
+
 th, td {
   padding: 0 10px;
   border: 1px dotted lightgrey;

@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @user = current_user
-    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
+    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 8, :page => params[:page])
   end
 
   # GET /services/1
@@ -44,7 +44,7 @@ class ServicesController < ApplicationController
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
-    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @services = Service.order(sort_column + " " + sort_direction).paginate(:per_page => 8, :page => params[:page])
     end
   end
 
