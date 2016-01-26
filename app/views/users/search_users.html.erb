@@ -1,0 +1,17 @@
+<h2 class="section-heading">Search Users</h2>
+  <form action ="/users/search_users" method="get">
+    <label class="fix-width" for="word_search_input">Search User Name</label>
+    <input class="fix-width" id="word_search_input" type="text" name="user_search" />
+    <input type="submit" value="Search" class="btn btn-primary" />
+  </form>
+
+  <% if !@user.nil? %>
+    <% if !@user.empty? %>
+          <h3>Users Found:</h3>
+          <% @user.each do |user| %>
+              <%= link_to user.first_name, user %> <%= link_to user.last_name, user %> of <%= link_to user.company_name, user %><br>
+          <% end %>
+    <% else %>
+      <h4 class="text-center">No Users Found</h4>
+    <% end %>
+  <% end %>

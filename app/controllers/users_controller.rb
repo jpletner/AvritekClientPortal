@@ -39,9 +39,9 @@ before_action :authenticate_user!
   end
 
   def search_users
-    if !params[:creator].nil?
-      search_string = params[:creator]
-      @user = User.basic_search({first_name: search_string, last_name: search_string}, false).paginate(:page => params[:page], :per_page => 16)
+    if !params[:user_search].nil?
+      user_search = params[:user_search].strip
+      @user = User.where("lower(first_name) LIKE (?) OR lower(last_name) LIKE (?)",  "%#{user_search.downcase}%", "%#{user_search.downcase}%")
     end
   end
 
