@@ -88,12 +88,10 @@
 <p>
   <strong>Additional Equipment Photos:</strong>
     <% if !@service.pictures.empty? %>
-      <div id="owl-demo">
+      <div>
         <% @service.pictures.each do |picture| %>
-          <div class="inline-div">
-            <%= image_tag(picture.photo.url(:med), :class => "owl_item") %>
-            <div class="block-div"><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %>
-          </div>
+            <%= image_tag(picture.photo.url(:med)) %>
+            <%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %>
         <% end %>
       </div>
     <% else %>
@@ -105,10 +103,15 @@
 
 <p>
   <strong>Equipment List:</strong><br>
-  <i>Select to Download:</i><%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
+  <% if @service.inventory.nil? %>
+      <i>Select to Download:</i>
+      <%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
+    <% else %>
+      <i>Upload Equipment List</i>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>
 
-<div class="lgmarbot"></div>
+<div class="mdmarbot"></div>
