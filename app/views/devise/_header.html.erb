@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><%= image_tag("Avritek_no_tagline.png") %></a>
+                <%= link_to(image_tag("Avritek_no_tagline.png"), root_path, class: "navbar-brand page-scroll") %>
             </div>
 
             <!-- collect the nav links, forms, and other content for toggling -->
@@ -27,7 +27,7 @@
                               <% end %>
                       </ul> <!--end ul dropdown #2-->
                     </li> <!--end li dropdown #2-->
-                    <li><a class="page-scroll primary-font-color" href="http://avritek.com/#contact">Contact Avritek</a></li>
+                    <li><a class="page-scroll primary-font-color" href="http://avritek.com/#contact", target="_blank">Contact Avritek</a></li>
                     <li class="dropdown">
                       <a href="#" data-toggle="dropdown" class="dropdown-toggle highlight-font-color">Hello <%= current_user.first_name %><b class="caret"></b></a>
                       <ul class="dropdown-menu dropdown-menu-left">
@@ -41,7 +41,7 @@
                     <ul class="nav navbar-nav navbar-right">
                       <li><%= link_to "Sign Up", new_user_registration_path %></li>
                       <li><%= link_to "Login", new_user_session_path %></li>
-                      <li><a class="page-scroll highlight-font-color" href="#contact">Contact</a></li>
+                      <li><a class="page-scroll highlight-font-color" href="http://avritek.com/#contact", target="_blank">Contact Avritek</a></li>
                     </ul> <!--end ul -->
                 <% end %>
             </div> <!-- /.navbar-collapse -->
