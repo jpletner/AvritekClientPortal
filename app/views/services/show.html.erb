@@ -103,7 +103,7 @@
 
 <p>
   <strong>Equipment List:</strong><br>
-  <% if @service.inventory.nil? %>
+  <% if !@service.inventory.nil? %>
       <i>Select to Download:</i>
       <%= link_to 'Equipment List', @service.inventory.url, :target => "_blank" %>
     <% else %>
