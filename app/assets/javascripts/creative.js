@@ -16,41 +16,9 @@
         event.preventDefault();
     });
 
-    // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 51
-    })
-
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a').click(function() {
         $('.navbar-toggle:visible').click();
     });
-
-    // // Fit Text Plugin for Header
-    // $("h1").fitText(
-    //     1.2, {
-    //         minFontSize: '27px',
-    //         maxFontSize: '65px'
-    //     }
-    // );
-    //
-    // $("h2").fitText(
-    //     1.2, {
-    //         minFontSize: '12px',
-    //         maxFontSize: '30px'
-    //     }
-    // );
-
-
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
-        }
-    })
-
-    // // Initialize WOW.js Scrolling Animations
-    // new WOW().init();
 
 })(jQuery); // End of use strict
