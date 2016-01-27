@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5.3'
 gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip', '~>4.3.2'
+gem 'aws-sdk', '~>2.2.13'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
