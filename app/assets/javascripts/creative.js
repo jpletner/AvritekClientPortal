@@ -27,21 +27,21 @@
         $('.navbar-toggle:visible').click();
     });
 
-    // Fit Text Plugin for Header
-    $("h1").fitText(
-        1.2, {
-            minFontSize: '27px',
-            maxFontSize: '65px'
-        }
-    );
-    
-    $("h2").fitText(
-        1.2, {
-            minFontSize: '12px',
-            maxFontSize: '30px'
-        }
-    );
-    
+    // // Fit Text Plugin for Header
+    // $("h1").fitText(
+    //     1.2, {
+    //         minFontSize: '27px',
+    //         maxFontSize: '65px'
+    //     }
+    // );
+    //
+    // $("h2").fitText(
+    //     1.2, {
+    //         minFontSize: '12px',
+    //         maxFontSize: '30px'
+    //     }
+    // );
+
 
     // Offset for Main Navigation
     $('#mainNav').affix({
@@ -50,7 +50,7 @@
         }
     })
 
-    // Initialize WOW.js Scrolling Animations
-    new WOW().init();
+    // // Initialize WOW.js Scrolling Animations
+    // new WOW().init();
 
 })(jQuery); // End of use strict
