@@ -57,7 +57,7 @@ class PicturesController < ApplicationController
     @service = @picture.service
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to edit_service_url(@service), notice: 'Picture was successfully destroyed.' }
+      format.html { redirect_to @service, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
