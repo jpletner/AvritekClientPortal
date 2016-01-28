@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   match('users/all', {:via => :get, :to => 'users#index'})
   match('/users/search_users' , {:via => :get, :to => 'users#search_users'})
   match('users/:id' , {:via => :get, :to => 'users#view_profile'})
+  delete 'service/:id/remove_image', to: 'services#remove_image', as: 'remove_service_image'
+
   resources :services
   resources :pictures
   resources :users

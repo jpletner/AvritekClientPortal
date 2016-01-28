@@ -14,6 +14,7 @@ class ServicesController < ApplicationController
   # GET /services/1.json
   def show
     @user = current_user
+    @service = Service.find(params[:id])
   end
 
   # GET /services/new
@@ -98,6 +99,12 @@ class ServicesController < ApplicationController
     send_file service.inventory.path, :type => service.inventory_content_type
   end
 
+  def remove_image
+    @service = Service.find(params[:id])
+    @service.image = nil
+    @service.save
+    redirect_to @service, flash: { success: 'User profile photo has been removed.' }
+  end
 
   private
     # Setting defaults for sorting
