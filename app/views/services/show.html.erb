@@ -82,7 +82,7 @@
 
 <p>
   <strong>Primary Equipment Photo:</strong><br>
-  <%= image_tag(@service.image.url(:large)) %>
+  <%= image_tag(@service.image.url(:large), :class => "img-responsive img-thumbnail") %>
 </p>
 
 <p>
@@ -92,7 +92,7 @@
         <ul class="list-inline">
         <% @service.pictures.each do |picture| %>
             <li>
-              <span><%= image_tag(picture.photo.url(:med)) %></span>
+              <span><%= image_tag(picture.photo.url(:med), :class => "img-responsive img-thumbnail") %></span>
               <p><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %></p>
             </li>
         <% end %>
