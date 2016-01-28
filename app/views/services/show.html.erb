@@ -89,10 +89,14 @@
   <strong>Additional Equipment Photos:</strong>
     <% if !@service.pictures.empty? %>
       <div>
+        <ul class="list-inline">
         <% @service.pictures.each do |picture| %>
-            <%= image_tag(picture.photo.url(:med)) %>
-            <%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %>
+            <li>
+              <span><%= image_tag(picture.photo.url(:med)) %></span>
+              <p><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %></p>
+            </li>
         <% end %>
+        </ul>
       </div>
     <% else %>
         <a class="my_add_photos_link" href="/services/<%= @service.id %>/edit">
