@@ -85,14 +85,14 @@
     <ul class="list-inline">
       <% if @service.image.file? %>
           <li>
-            <span><%= image_tag(@service.image.url(:large), :class => "img-responsive img-thumbnail") %></span>
+            <span><%= link_to( image_tag(@service.image.url(:large), :class => "img-responsive img-thumbnail"), @service.image(:original)) %></span>
             <p><%= link_to 'Destroy', remove_service_image_path, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %></p>
           </li>
       <% end %>
       <% if !@service.pictures.empty? %>
       <% @service.pictures.each do |picture| %>
           <li>
-            <span><%= image_tag(picture.photo.url(:med), :class => "img-responsive img-thumbnail") %></span>
+            <span><%= link_to( image_tag(picture.photo.url(:med), :class => "img-responsive img-thumbnail"), picture.photo(:original)) %></span>
             <p><%= link_to 'Destroy', '/pictures/' + picture.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy-image", class:"main-font" %></p>
           </li>
       <% end %>
